@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма обратной связи</title>
+  <style>
+    /* Основные стили */
+    body { font-family: Arial, sans-serif; }
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .popup {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .popup form input, .popup form textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .popup form label {
+      font-size: 0.9em;
+    }
+    .popup form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .popup form button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .message {
+      margin-top: 15px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="openFormBtn">Открыть форму обратной связи</button>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <form id="feedbackForm">
+        <label>ФИО:</label>
+        <input type="text" name="name" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Телефон:</label>
+        <input type="tel" name="phone" required>
+
+        <label>Организация:</label>
+        <input type="text" name="organization">
+
+        <label>Сообщение:</label>
+        <textarea name="message" required></textarea>
+
+        <label>
+          <input type="checkbox" name="consent" required> Согласие с политикой обработки персональных данных
+        </label>
+
+        <button type="submit">Отправить</button>
+      </form>
+      <div class="message" id="responseMessage"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
