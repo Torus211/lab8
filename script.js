@@ -4,13 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const feedbackForm = document.getElementById("feedbackForm");
   const responseMessage = document.getElementById("responseMessage");
 
-  // Показать попап и обновить URL
+  // ГЏГ®ГЄГ Г§Г ГІГј ГЇГ®ГЇГ ГЇ ГЁ Г®ГЎГ­Г®ГўГЁГІГј URL
   openFormBtn.addEventListener("click", function() {
     openPopup();
     history.pushState({ formOpened: true }, "", "#feedbackForm");
   });
 
-  // Закрыть попап и вернуться к основному URL
+  // Г‡Г ГЄГ°Г»ГІГј ГЇГ®ГЇГ ГЇ ГЁ ГўГҐГ°Г­ГіГІГјГ±Гї ГЄ Г®Г±Г­Г®ГўГ­Г®Г¬Гі URL
   function closePopup() {
     popupOverlay.style.display = "none";
     history.back();
@@ -21,19 +21,19 @@ document.addEventListener("DOMContentLoaded", function() {
     restoreFormData();
   }
 
-  // Обработка клика вне формы для закрытия попапа
+  // ГЋГЎГ°Г ГЎГ®ГІГЄГ  ГЄГ«ГЁГЄГ  ГўГ­ГҐ ГґГ®Г°Г¬Г» Г¤Г«Гї Г§Г ГЄГ°Г»ГІГЁГї ГЇГ®ГЇГ ГЇГ 
   popupOverlay.addEventListener("click", function(event) {
     if (event.target === popupOverlay) closePopup();
   });
 
-  // Сохранить данные формы в LocalStorage
+  // Г‘Г®ГµГ°Г Г­ГЁГІГј Г¤Г Г­Г­Г»ГҐ ГґГ®Г°Г¬Г» Гў LocalStorage
   function saveFormData() {
     const formData = new FormData(feedbackForm);
     const formValues = Object.fromEntries(formData);
     localStorage.setItem("feedbackFormData", JSON.stringify(formValues));
   }
 
-  // Восстановить данные формы из LocalStorage
+  // Г‚Г®Г±Г±ГІГ Г­Г®ГўГЁГІГј Г¤Г Г­Г­Г»ГҐ ГґГ®Г°Г¬Г» ГЁГ§ LocalStorage
   function restoreFormData() {
     const savedData = localStorage.getItem("feedbackFormData");
     if (savedData) {
@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Отправка формы с использованием fetch
+  // ГЋГІГЇГ°Г ГўГЄГ  ГґГ®Г°Г¬Г» Г± ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐГ¬ fetch
   feedbackForm.addEventListener("submit", async function(event) {
     event.preventDefault();
     const formData = new FormData(feedbackForm);
 
-    // Отправка данных на сервер (пример с formcarry.com)
+    // ГЋГІГЇГ°Г ГўГЄГ  Г¤Г Г­Г­Г»Гµ Г­Г  Г±ГҐГ°ГўГҐГ° (ГЇГ°ГЁГ¬ГҐГ° Г± formcarry.com)
     try {
       const response = await fetch("https://formcarry.com/s/YOUR_FORM_ID", {
         method: "POST",
@@ -58,21 +58,21 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       if (response.ok) {
-        responseMessage.textContent = "Сообщение успешно отправлено!";
+        responseMessage.textContent = "РЎРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ!";
         localStorage.removeItem("feedbackFormData");
         feedbackForm.reset();
       } else {
-        responseMessage.textContent = "Ошибка при отправке сообщения. Попробуйте позже.";
+        responseMessage.textContent = "РћС€РёР±РєР° РїСЂРё РѕС‚РїСЂР°РІРєРµ СЃРѕРѕР±С‰РµРЅРёСЏ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РїРѕР·Р¶Рµ.";
       }
     } catch (error) {
-      responseMessage.textContent = "Ошибка при отправке сообщения.";
+      responseMessage.textContent = "РћС€РёР±РєР° РїСЂРё РѕС‚РїСЂР°РІРєРµ СЃРѕРѕР±С‰РµРЅРёСЏ.";
     }
   });
 
-  // Сохранить введенные данные перед отправкой
+  // Г‘Г®ГµГ°Г Г­ГЁГІГј ГўГўГҐГ¤ГҐГ­Г­Г»ГҐ Г¤Г Г­Г­Г»ГҐ ГЇГҐГ°ГҐГ¤ Г®ГІГЇГ°Г ГўГЄГ®Г©
   feedbackForm.addEventListener("input", saveFormData);
 
-  // Управление состоянием истории
+  // Г“ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г±Г®Г±ГІГ®ГїГ­ГЁГҐГ¬ ГЁГ±ГІГ®Г°ГЁГЁ
   window.addEventListener("popstate", function(event) {
     if (!event.state?.formOpened) closePopup();
   });
