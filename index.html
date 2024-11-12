@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Форма обратной связи</title>
+  <title>Р¤РѕСЂРјР° РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё</title>
   <style>
-    /* Основные стили */
+    /* РћСЃРЅРѕРІРЅС‹Рµ СЃС‚РёР»Рё */
     body { font-family: Arial, sans-serif; }
     .popup-overlay {
       display: none;
@@ -57,31 +57,31 @@
 </head>
 <body>
 
-  <button id="openFormBtn">Открыть форму обратной связи</button>
+  <button id="openFormBtn">РћС‚РєСЂС‹С‚СЊ С„РѕСЂРјСѓ РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё</button>
 
   <div class="popup-overlay" id="popupOverlay">
     <div class="popup">
       <form id="feedbackForm">
-        <label>ФИО:</label>
+        <label>Р¤РРћ:</label>
         <input type="text" name="name" required>
 
         <label>Email:</label>
         <input type="email" name="email" required>
 
-        <label>Телефон:</label>
+        <label>РўРµР»РµС„РѕРЅ:</label>
         <input type="tel" name="phone" required>
 
-        <label>Организация:</label>
+        <label>РћСЂРіР°РЅРёР·Р°С†РёСЏ:</label>
         <input type="text" name="organization">
 
-        <label>Сообщение:</label>
+        <label>РЎРѕРѕР±С‰РµРЅРёРµ:</label>
         <textarea name="message" required></textarea>
 
         <label>
-          <input type="checkbox" name="consent" required> Согласие с политикой обработки персональных данных
+          <input type="checkbox" name="consent" required> РЎРѕРіР»Р°СЃРёРµ СЃ РїРѕР»РёС‚РёРєРѕР№ РѕР±СЂР°Р±РѕС‚РєРё РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…
         </label>
 
-        <button type="submit">Отправить</button>
+        <button type="submit">РћС‚РїСЂР°РІРёС‚СЊ</button>
       </form>
       <div class="message" id="responseMessage"></div>
     </div>
