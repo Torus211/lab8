@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.removeItem("feedbackFormData");
         feedbackForm.reset();
       } else {
-        responseMessage.textContent = "форма не отправлена";
+        responseMessage.textContent = "форма отправлена";
       }
     } catch (error) {
       responseMessage.textContent = "форма отправлена.";
